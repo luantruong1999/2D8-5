@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Character : MonoBehaviour,IDamegeable
+public abstract class Character : MonoBehaviour,IDamegeable
 {
    public string displayStringName;
    public int curHp;
@@ -15,14 +15,14 @@ public class Character : MonoBehaviour,IDamegeable
       
    }
 
-   [SerializeField] private Team team;
-   [Header("audio")] [SerializeField] private AudioSource _audioSource;
-   [SerializeField] private AudioClip _audioClip;
+   [SerializeField] protected Team team;
+   [Header("audio")] [SerializeField] protected AudioSource _audioSource;
+   [SerializeField] protected AudioClip _audioClip;
    public event UnityAction onTakeDame;
    public event UnityAction onHeal;
 
 
-   public void TakeDame(int Dame)
+   public virtual void TakenDame(int Dame)
    {
       curHp -= Dame;
       _audioSource.PlayOneShot(_audioClip);
@@ -33,7 +33,7 @@ public class Character : MonoBehaviour,IDamegeable
       }
    }
 
-   public void Die()
+   public virtual void Die()
    {
       
    }
@@ -43,7 +43,7 @@ public class Character : MonoBehaviour,IDamegeable
       return team;
    }
 
-   public void Heal(int HealAmount)
+   public virtual void Heal(int HealAmount)
    {
       curHp += HealAmount;
       if (curHp > maxHp) curHp = maxHp;
