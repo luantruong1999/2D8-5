@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Bow
   Description: Shoot
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b5562b4991e5d8648a5ba90da938f696, type: 3}
   MaxStackSize: 1
-  EquipPrfab: {fileID: 0}
+  EquipPrfab: {fileID: 7191008111113618543, guid: 0530b5d7cdca33641bcabbda75597e97, type: 3}
   FireRate: 0.5
-  ProjectilePrefabs: {fileID: 0}
+  ProjectilePrefabs: {fileID: 2259772522971706621, guid: 647adb5b188ae1544824d011c3ab1fd5, type: 3}
   ProjectileData: {fileID: 11400000, guid: f1611313ac6a9d14880a418aa8c01586, type: 2}

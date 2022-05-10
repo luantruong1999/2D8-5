@@ -12,6 +12,7 @@ public class RangeItemData : ItemsData
 
    public void Fire(Vector3 spawnPos,Quaternion SpawnRotation,Character.Team team)
    {
-      
+      GameObject project = Instantiate(ProjectilePrefabs, spawnPos, SpawnRotation);
+      project.GetComponent<Project>().SetTeam(team);
    }
 }

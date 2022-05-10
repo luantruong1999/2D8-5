@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class EquipController : MonoBehaviour
 {
-    [SerializeField]private ItemsData test;
+    
     private EquipItem curEquipItem;
     private GameObject curEquipGameObject;
     private bool useInput;
@@ -19,7 +19,7 @@ public class EquipController : MonoBehaviour
 
     private void Start()
     {
-        Equip(test);
+       
     }
 
     private void Update()

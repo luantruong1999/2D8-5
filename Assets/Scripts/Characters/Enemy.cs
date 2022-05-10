@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public abstract class Enemy : Character
@@ -15,6 +16,9 @@ public abstract class Enemy : Character
     protected State curState;
     [SerializeField] protected float moveSpeed;
     [SerializeField] protected float chaseDistance;
+    [SerializeField] protected ItemsData[] dropItems;
+    [SerializeField] protected GameObject dropPrefab;
+    
     
      protected GameObject target;
      protected float targetDistance;
@@ -119,7 +123,12 @@ public abstract class Enemy : Character
 
     protected void DropIteam()
     {
-        
+        for (int i = 0; i < dropItems.Length; i++)
+        {
+            GameObject obj = Instantiate(dropPrefab, transform.position, quaternion.identity);
+            obj.GetComponent<WorldItem>().SetItem(dropItems[i]);
+            
+        }
     }
 
     protected  Vector2 GetTargetDirection()

@@ -20,8 +20,16 @@ public class MeleeEquipItem : EquipItem
         lastAttackTime = Time.time;
         
         animator.SetTrigger("Attack");
-        //shot raycast
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up, i.Range, hitLayerMask);
+        if (hit.collider != null)
+        {
+            IDamegeable damegeable = hit.collider.GetComponent<IDamegeable>();
+            if (damegeable != null)
+            {
+                damegeable.TakenDame(i.Damege);
+            }
+        }
         //if we hit anything,dame it
-        
+
     }
 }
